@@ -13,4 +13,5 @@ public class ResponseSchool {
     private String name;
     private int school_id;
     private String level_name;
+    private String nature_name;
 }

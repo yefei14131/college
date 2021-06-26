@@ -9,6 +9,7 @@ import org.yefei.model.gen.pojo.College;
 import org.yefei.model.gen.pojo.CollegeExample;
 import org.yefei.pojo.School;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -52,7 +53,9 @@ public class SchoolDao {
         example.createCriteria()
 //                .andActiveEqualTo(true)
         .andIDGreaterThan(1)
-        .andProviceLike("%"+provice+"%")
+        .andProviceIn(Arrays.asList(new String[]{
+                "广西","海南","重庆","贵州","云南","西藏","陕西","甘肃","青海","宁夏","新疆","北京","天津","上海"
+        }))
         .andLevelNameNotLike("专科")
         .andLevelNameNotLike("高职")
         ;

@@ -13,6 +13,8 @@ public class College {
 
     private Boolean active;
 
+    private String natureName;
+
     public Integer getID() {
         return ID;
     }
@@ -59,5 +61,13 @@ public class College {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public String getNatureName() {
+        return natureName;
+    }
+
+    public void setNatureName(String natureName) {
+        this.natureName = natureName == null ? null : natureName.trim();
     }
 }

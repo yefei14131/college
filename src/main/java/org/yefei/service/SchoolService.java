@@ -81,6 +81,7 @@ public class SchoolService {
         college.setSchoolName(responseSchool.getName());
         college.setProvice(responseSchool.getProvince_name());
         college.setLevelName(responseSchool.getLevel_name());
+        college.setNatureName(responseSchool.getNature_name());
 
         if (schoolDao.get(schoolID) == null) {
             schoolDao.insert(college);

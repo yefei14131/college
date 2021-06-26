@@ -493,6 +493,76 @@ public class CollegeExample {
             addCriterion("active not between", value1, value2, "active");
             return (Criteria) this;
         }
+
+        public Criteria andNatureNameIsNull() {
+            addCriterion("natureName is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameIsNotNull() {
+            addCriterion("natureName is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameEqualTo(String value) {
+            addCriterion("natureName =", value, "natureName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameNotEqualTo(String value) {
+            addCriterion("natureName <>", value, "natureName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameGreaterThan(String value) {
+            addCriterion("natureName >", value, "natureName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameGreaterThanOrEqualTo(String value) {
+            addCriterion("natureName >=", value, "natureName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameLessThan(String value) {
+            addCriterion("natureName <", value, "natureName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameLessThanOrEqualTo(String value) {
+            addCriterion("natureName <=", value, "natureName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameLike(String value) {
+            addCriterion("natureName like", value, "natureName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameNotLike(String value) {
+            addCriterion("natureName not like", value, "natureName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameIn(List<String> values) {
+            addCriterion("natureName in", values, "natureName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameNotIn(List<String> values) {
+            addCriterion("natureName not in", values, "natureName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameBetween(String value1, String value2) {
+            addCriterion("natureName between", value1, value2, "natureName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNatureNameNotBetween(String value1, String value2) {
+            addCriterion("natureName not between", value1, value2, "natureName");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -8,6 +8,7 @@
     <result column="levelName" jdbcType="VARCHAR" property="levelName" />
     <result column="provice" jdbcType="VARCHAR" property="provice" />
     <result column="active" jdbcType="BIT" property="active" />
+    <result column="natureName" jdbcType="VARCHAR" property="natureName" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, schoolID, schoolName, levelName, provice, active
+    ID, schoolID, schoolName, levelName, provice, active, natureName
   </sql>
   <select id="selectByExample" parameterType="org.yefei.model.gen.pojo.CollegeExample" resultMap="BaseResultMap">
     select
@@ -105,9 +106,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into college (schoolID, schoolName, levelName, 
-      provice, active)
+      provice, active, natureName
+      )
     values (#{schoolID,jdbcType=INTEGER}, #{schoolName,jdbcType=VARCHAR}, #{levelName,jdbcType=VARCHAR}, 
-      #{provice,jdbcType=VARCHAR}, #{active,jdbcType=BIT})
+      #{provice,jdbcType=VARCHAR}, #{active,jdbcType=BIT}, #{natureName,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="org.yefei.model.gen.pojo.College">
     <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
@@ -130,6 +133,9 @@
       <if test="active != null">
         active,
       </if>
+      <if test="natureName != null">
+        natureName,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="schoolID != null">
@@ -146,6 +152,9 @@
       </if>
       <if test="active != null">
         #{active,jdbcType=BIT},
+      </if>
+      <if test="natureName != null">
+        #{natureName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -176,6 +185,9 @@
       <if test="record.active != null">
         active = #{record.active,jdbcType=BIT},
       </if>
+      <if test="record.natureName != null">
+        natureName = #{record.natureName,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -188,7 +200,8 @@
       schoolName = #{record.schoolName,jdbcType=VARCHAR},
       levelName = #{record.levelName,jdbcType=VARCHAR},
       provice = #{record.provice,jdbcType=VARCHAR},
-      active = #{record.active,jdbcType=BIT}
+      active = #{record.active,jdbcType=BIT},
+      natureName = #{record.natureName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -211,6 +224,9 @@
       <if test="active != null">
         active = #{active,jdbcType=BIT},
       </if>
+      <if test="natureName != null">
+        natureName = #{natureName,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
@@ -220,7 +236,8 @@
       schoolName = #{schoolName,jdbcType=VARCHAR},
       levelName = #{levelName,jdbcType=VARCHAR},
       provice = #{provice,jdbcType=VARCHAR},
-      active = #{active,jdbcType=BIT}
+      active = #{active,jdbcType=BIT},
+      natureName = #{natureName,jdbcType=VARCHAR}
     where ID = #{ID,jdbcType=INTEGER}
   </update>
 </mapper>
