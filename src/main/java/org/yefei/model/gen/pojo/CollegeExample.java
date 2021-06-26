@@ -294,6 +294,76 @@ public class CollegeExample {
             return (Criteria) this;
         }
 
+        public Criteria andLevelNameIsNull() {
+            addCriterion("levelName is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameIsNotNull() {
+            addCriterion("levelName is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameEqualTo(String value) {
+            addCriterion("levelName =", value, "levelName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameNotEqualTo(String value) {
+            addCriterion("levelName <>", value, "levelName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameGreaterThan(String value) {
+            addCriterion("levelName >", value, "levelName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameGreaterThanOrEqualTo(String value) {
+            addCriterion("levelName >=", value, "levelName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameLessThan(String value) {
+            addCriterion("levelName <", value, "levelName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameLessThanOrEqualTo(String value) {
+            addCriterion("levelName <=", value, "levelName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameLike(String value) {
+            addCriterion("levelName like", value, "levelName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameNotLike(String value) {
+            addCriterion("levelName not like", value, "levelName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameIn(List<String> values) {
+            addCriterion("levelName in", values, "levelName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameNotIn(List<String> values) {
+            addCriterion("levelName not in", values, "levelName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameBetween(String value1, String value2) {
+            addCriterion("levelName between", value1, value2, "levelName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelNameNotBetween(String value1, String value2) {
+            addCriterion("levelName not between", value1, value2, "levelName");
+            return (Criteria) this;
+        }
+
         public Criteria andProviceIsNull() {
             addCriterion("provice is null");
             return (Criteria) this;

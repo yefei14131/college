@@ -7,6 +7,8 @@ public class College {
 
     private String schoolName;
 
+    private String levelName;
+
     private String provice;
 
     private Boolean active;
@@ -33,6 +35,14 @@ public class College {
 
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName == null ? null : schoolName.trim();
+    }
+
+    public String getLevelName() {
+        return levelName;
+    }
+
+    public void setLevelName(String levelName) {
+        this.levelName = levelName == null ? null : levelName.trim();
     }
 
     public String getProvice() {

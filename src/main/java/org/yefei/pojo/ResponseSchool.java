@@ -12,4 +12,5 @@ public class ResponseSchool {
     private int province_id;
     private String name;
     private int school_id;
+    private String level_name;
 }

@@ -80,6 +80,7 @@ public class SchoolService {
         college.setSchoolID(schoolID);
         college.setSchoolName(responseSchool.getName());
         college.setProvice(responseSchool.getProvince_name());
+        college.setLevelName(responseSchool.getLevel_name());
 
         if (schoolDao.get(schoolID) == null) {
             schoolDao.insert(college);

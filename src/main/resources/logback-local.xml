@@ -55,7 +55,7 @@
 
     <root level="info">
         <appender-ref ref="STDOUT" />
-        <!--<appender-ref ref="FILE_STDOUT"/>-->
+        <appender-ref ref="FILE_STDOUT"/>
     </root>
 
 

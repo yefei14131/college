@@ -27,7 +27,7 @@ public class SchoolDao {
     public void update(College school) {
         CollegeExample example = new CollegeExample();
         example.createCriteria().andSchoolIDEqualTo(school.getSchoolID());
-        collegeMapper.updateByExample(school, example);
+        collegeMapper.updateByExampleSelective(school, example);
     }
 
     public void insert(College school) {
@@ -49,9 +49,10 @@ public class SchoolDao {
 
     public List<College> listNoCore1() {
         CollegeExample example = new CollegeExample();
-        example.createCriteria().andActiveEqualTo(true)
-        .andIDGreaterThan(500)
-        .andProviceLike("%四川%")
+        example.createCriteria()
+//                .andActiveEqualTo(true)
+        .andIDGreaterThan(1)
+        .andProviceLike("%吉林%")
         .andSchoolNameNotLike("%专科%")
         .andSchoolNameNotLike("%职业%")
         .andSchoolNameNotLike("%高等%");

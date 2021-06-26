@@ -7,6 +7,8 @@ public class CollegeScore {
 
     private String schoolName;
 
+    private String provice;
+
     private Integer specialID;
 
     private String specialName;
@@ -41,6 +43,14 @@ public class CollegeScore {
 
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName == null ? null : schoolName.trim();
+    }
+
+    public String getProvice() {
+        return provice;
+    }
+
+    public void setProvice(String provice) {
+        this.provice = provice == null ? null : provice.trim();
     }
 
     public Integer getSpecialID() {

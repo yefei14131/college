@@ -294,6 +294,76 @@ public class CollegeScoreExample {
             return (Criteria) this;
         }
 
+        public Criteria andProviceIsNull() {
+            addCriterion("provice is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceIsNotNull() {
+            addCriterion("provice is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceEqualTo(String value) {
+            addCriterion("provice =", value, "provice");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceNotEqualTo(String value) {
+            addCriterion("provice <>", value, "provice");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceGreaterThan(String value) {
+            addCriterion("provice >", value, "provice");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceGreaterThanOrEqualTo(String value) {
+            addCriterion("provice >=", value, "provice");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceLessThan(String value) {
+            addCriterion("provice <", value, "provice");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceLessThanOrEqualTo(String value) {
+            addCriterion("provice <=", value, "provice");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceLike(String value) {
+            addCriterion("provice like", value, "provice");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceNotLike(String value) {
+            addCriterion("provice not like", value, "provice");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceIn(List<String> values) {
+            addCriterion("provice in", values, "provice");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceNotIn(List<String> values) {
+            addCriterion("provice not in", values, "provice");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceBetween(String value1, String value2) {
+            addCriterion("provice between", value1, value2, "provice");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviceNotBetween(String value1, String value2) {
+            addCriterion("provice not between", value1, value2, "provice");
+            return (Criteria) this;
+        }
+
         public Criteria andSpecialIDIsNull() {
             addCriterion("specialID is null");
             return (Criteria) this;
