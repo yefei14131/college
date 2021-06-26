@@ -31,7 +31,7 @@ public class SchoolDao {
     }
 
     public void insert(College school) {
-        collegeMapper.insert(school);
+        collegeMapper.insertSelective(school);
     }
 
     public College get(int schoolID) {
@@ -47,12 +47,12 @@ public class SchoolDao {
     }
 
 
-    public List<College> listNoCore1() {
+    public List<College> listNoCore1(String provice) {
         CollegeExample example = new CollegeExample();
         example.createCriteria()
 //                .andActiveEqualTo(true)
         .andIDGreaterThan(1)
-        .andProviceLike("%吉林%")
+        .andProviceLike("%"+provice+"%")
         .andSchoolNameNotLike("%专科%")
         .andSchoolNameNotLike("%职业%")
         .andSchoolNameNotLike("%高等%");
@@ -60,8 +60,8 @@ public class SchoolDao {
         return collegeMapper.selectByExample(example);
     }
 
-    public List<College> listNoCore() {
+    public List<College> listNoCore(String provice) {
 //        return innerCollegeMapper.listNoCore();
-        return this.listNoCore1();
+        return this.listNoCore1(provice);
     }
 }

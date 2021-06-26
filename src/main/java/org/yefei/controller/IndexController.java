@@ -51,9 +51,9 @@ public class IndexController {
 
     @RequestMapping("/school_score/collect")
     @ResponseBody
-    public Object collectSchoolScore() {
+    public Object collectSchoolScore(@RequestParam(name = "provice", defaultValue = "北京") String provice) {
         new Thread(()->{
-            List<College> list = schoolService.listCollege();
+            List<College> list = schoolService.listCollege(provice);
             list.forEach(college -> schoolScoreService.collectCore(college.getSchoolID(), college.getSchoolName()));
             log.info("执行完毕");
         }).start();

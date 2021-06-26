@@ -18,7 +18,7 @@ public class SchoolScoreDao {
     private CollegeScoreMapper collegeScoreMapper;
 
     public void save(CollegeScore score) {
-        collegeScoreMapper.insert(score);
+        collegeScoreMapper.insertSelective(score);
     }
 
     public boolean exists(int schoolID, int year) {

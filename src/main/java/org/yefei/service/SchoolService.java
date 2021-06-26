@@ -29,8 +29,8 @@ public class SchoolService {
     @Autowired
     private SchoolDao schoolDao;
 
-    public List<College> listCollege() {
-        return schoolDao.listNoCore();
+    public List<College> listCollege(String provice) {
+        return schoolDao.listNoCore(provice);
     }
 
     public void collect(int page) {
