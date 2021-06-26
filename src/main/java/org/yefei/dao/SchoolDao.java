@@ -53,9 +53,8 @@ public class SchoolDao {
 //                .andActiveEqualTo(true)
         .andIDGreaterThan(1)
         .andProviceLike("%"+provice+"%")
-        .andSchoolNameNotLike("%专科%")
-        .andSchoolNameNotLike("%职业%")
-        .andSchoolNameNotLike("%高等%");
+        .andLevelNameNotLike("专科")
+        .andLevelNameNotLike("高职")
         ;
         return collegeMapper.selectByExample(example);
     }
