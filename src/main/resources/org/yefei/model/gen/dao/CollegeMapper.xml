@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yefei.model.gen.dao.CollegeMapper">
+  <resultMap id="BaseResultMap" type="org.yefei.model.gen.pojo.College">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="schoolID" jdbcType="INTEGER" property="schoolID" />
+    <result column="schoolName" jdbcType="VARCHAR" property="schoolName" />
+    <result column="levelName" jdbcType="VARCHAR" property="levelName" />
+    <result column="provice" jdbcType="VARCHAR" property="provice" />
+    <result column="active" jdbcType="BIT" property="active" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, schoolID, schoolName, levelName, provice, active
+  </sql>
+  <select id="selectByExample" parameterType="org.yefei.model.gen.pojo.CollegeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from college
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from college
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from college
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.yefei.model.gen.pojo.CollegeExample">
+    delete from college
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.yefei.model.gen.pojo.College">
+    <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into college (schoolID, schoolName, levelName, 
+      provice, active)
+    values (#{schoolID,jdbcType=INTEGER}, #{schoolName,jdbcType=VARCHAR}, #{levelName,jdbcType=VARCHAR}, 
+      #{provice,jdbcType=VARCHAR}, #{active,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.yefei.model.gen.pojo.College">
+    <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into college
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="schoolID != null">
+        schoolID,
+      </if>
+      <if test="schoolName != null">
+        schoolName,
+      </if>
+      <if test="levelName != null">
+        levelName,
+      </if>
+      <if test="provice != null">
+        provice,
+      </if>
+      <if test="active != null">
+        active,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="schoolID != null">
+        #{schoolID,jdbcType=INTEGER},
+      </if>
+      <if test="schoolName != null">
+        #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="levelName != null">
+        #{levelName,jdbcType=VARCHAR},
+      </if>
+      <if test="provice != null">
+        #{provice,jdbcType=VARCHAR},
+      </if>
+      <if test="active != null">
+        #{active,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.yefei.model.gen.pojo.CollegeExample" resultType="java.lang.Long">
+    select count(*) from college
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update college
+    <set>
+      <if test="record.ID != null">
+        ID = #{record.ID,jdbcType=INTEGER},
+      </if>
+      <if test="record.schoolID != null">
+        schoolID = #{record.schoolID,jdbcType=INTEGER},
+      </if>
+      <if test="record.schoolName != null">
+        schoolName = #{record.schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.levelName != null">
+        levelName = #{record.levelName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provice != null">
+        provice = #{record.provice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.active != null">
+        active = #{record.active,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update college
+    set ID = #{record.ID,jdbcType=INTEGER},
+      schoolID = #{record.schoolID,jdbcType=INTEGER},
+      schoolName = #{record.schoolName,jdbcType=VARCHAR},
+      levelName = #{record.levelName,jdbcType=VARCHAR},
+      provice = #{record.provice,jdbcType=VARCHAR},
+      active = #{record.active,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.yefei.model.gen.pojo.College">
+    update college
+    <set>
+      <if test="schoolID != null">
+        schoolID = #{schoolID,jdbcType=INTEGER},
+      </if>
+      <if test="schoolName != null">
+        schoolName = #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="levelName != null">
+        levelName = #{levelName,jdbcType=VARCHAR},
+      </if>
+      <if test="provice != null">
+        provice = #{provice,jdbcType=VARCHAR},
+      </if>
+      <if test="active != null">
+        active = #{active,jdbcType=BIT},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.yefei.model.gen.pojo.College">
+    update college
+    set schoolID = #{schoolID,jdbcType=INTEGER},
+      schoolName = #{schoolName,jdbcType=VARCHAR},
+      levelName = #{levelName,jdbcType=VARCHAR},
+      provice = #{provice,jdbcType=VARCHAR},
+      active = #{active,jdbcType=BIT}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>
