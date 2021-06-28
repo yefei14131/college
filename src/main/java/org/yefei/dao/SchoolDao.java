@@ -52,13 +52,15 @@ public class SchoolDao {
         CollegeExample example = new CollegeExample();
         example.createCriteria()
 //                .andActiveEqualTo(true)
-        .andIDGreaterThan(1)
+        .andIDGreaterThan(1198)
         .andProviceIn(Arrays.asList(new String[]{
-                "广西","海南","重庆","贵州","云南","西藏","陕西","甘肃","青海","宁夏","新疆","北京","天津","上海"
+//                "广西","海南","重庆","贵州","云南","西藏","陕西","甘肃","青海","宁夏","新疆","北京","天津","上海"
+                "山西", "内蒙古","江苏","浙江","安徽","福建","江西","山东","河南","湖北","湖南","广东"
         }))
-        .andLevelNameNotLike("专科")
-        .andLevelNameNotLike("高职")
+        .andLevelNameNotLike("%专科%")
+        .andLevelNameNotLike("%高职%")
         ;
+        example.setOrderByClause("id desc");
         return collegeMapper.selectByExample(example);
     }
 

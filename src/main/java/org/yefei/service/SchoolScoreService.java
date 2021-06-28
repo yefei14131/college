@@ -89,7 +89,12 @@ public class SchoolScoreService {
 
     private ScoreResponse collectCore(int schoolID, String schoolName, int year, int page) throws InterruptedException {
         Thread.sleep(2000L);
-        String url = String.format("https://static-data.eol.cn/www/2.0/schoolspecialindex/%d/%d/51/1/8/%d.json", year, schoolID, page);
+        String url;
+        // 理科二本
+        url = String.format("https://static-data.eol.cn/www/2.0/schoolspecialindex/%d/%d/51/1/8/%d.json", year, schoolID, page);
+        // 历史一本
+//        url = String.format("https://static-data.eol.cn/www/2.0/schoolspecialindex/%d/%d/51/1/8/%d.json", year, schoolID, page);
+
         okhttp3.Response response = okHttpClient.get(url, null);
         if (response != null && response.code() == 200) {
             byte[] bytes = new byte[0];
